@@ -30,10 +30,24 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
-        <div class="mobile-menu">
+        <div class="mobile-menu-toggle">
           <i class="fas fa-bars"></i>
         </div>
-      </div>
+        
+        <nav class="mobile-nav">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mobile-close-btn">
+            <i class="fas fa-times"></i>
+          </div>
+        </nav>
+        
+        <div class="mobile-nav-backdrop"></div>
     </header>
 
     <section
@@ -169,29 +183,5 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script>
-      // Portfolio Filtering
-      const filterButtons = document.querySelectorAll(".filter-btn");
-      const portfolioItems = document.querySelectorAll(".portfolio-item");
-
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          // Update active button
-          filterButtons.forEach((btn) => btn.classList.remove("active"));
-          button.classList.add("active");
-
-          // Filter items
-          const filter = button.dataset.filter;
-
-          portfolioItems.forEach((item) => {
-            if (filter === "all" || item.dataset.category === filter) {
-              item.style.display = "block";
-            } else {
-              item.style.display = "none";
-            }
-          });
-        });
-      });
-    </script>
   </body>
 </html>
