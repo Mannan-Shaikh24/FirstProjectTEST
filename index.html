@@ -1,0 +1,23 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const homeButton = document.createElement('a');
+      homeButton.href = 'index.html';
+      homeButton.className = 'home-button';
+      homeButton.textContent = 'Home';
+      document.body.appendChild(homeButton);
+  });
+  </script>
+  
+  <style>
+  .home-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 15px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      z-index: 1000;
+  }
+  </style>
