@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuBtn = document.querySelector(".mobile-menu");
   const navMenu = document.querySelector("nav ul");
 
-  mobileMenuBtn.addEventListener("click", function () {
-    this.classList.toggle("active");
-    navMenu.classList.toggle("active");
+
 
     // Toggle between hamburger and close icon
     const icon = this.querySelector("i");
@@ -151,19 +149,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ===== Scroll Reveal Animation =====
-  const scrollReveal = ScrollReveal({
-    origin: "bottom",
-    distance: "60px",
-    duration: 1000,
-    delay: 200,
-    reset: true,
-  });
-
-  scrollReveal.reveal(".portfolio-item", {
-    interval: 200,
-    easing: "cubic-bezier(0.5, 0, 0, 1)",
-  });
 
   // ===== Preloader =====
   window.addEventListener("load", function () {
@@ -175,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 500);
     }
   });
-});
+
 
 // ===== Helper Functions =====
 function debounce(func, wait = 20, immediate = true) {
@@ -200,11 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenu = document.querySelector(".mobile-menu");
   const navUl = document.querySelector("nav ul");
 
-  mobileMenu.addEventListener("click", function () {
-    navUl.classList.toggle("active");
-    this.classList.toggle("fa-times");
-    this.classList.toggle("fa-bars");
-  });
+
 
   // Header scroll effect
   window.addEventListener("scroll", function () {

@@ -20,8 +20,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-
-  // Initialize - show residential services by default
-  document.querySelector(".service-category.residential").style.display =
-    "block";
 });

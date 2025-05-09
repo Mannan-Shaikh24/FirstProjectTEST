@@ -3,11 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuBtn = document.querySelector(".mobile-menu");
   const navMenu = document.querySelector("nav ul");
 
-  mobileMenuBtn.addEventListener("click", function () {
-    navMenu.classList.toggle("show");
-    this.querySelector("i").classList.toggle("fa-times");
-    this.querySelector("i").classList.toggle("fa-bars");
-  });
+
 
   // Close mobile menu when clicking on a link
   const navLinks = document.querySelectorAll("nav ul li a");

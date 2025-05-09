@@ -4,11 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenu = document.querySelector(".mobile-menu");
   const navUl = document.querySelector("nav ul");
 
-  mobileMenu.addEventListener("click", function () {
-    navUl.classList.toggle("active");
-    this.classList.toggle("fa-times");
-    this.classList.toggle("fa-bars");
-  });
 
   // Header scroll effect
   window.addEventListener("scroll", function () {
