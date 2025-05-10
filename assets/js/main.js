@@ -1,53 +1,30 @@
 // main.js - Shaikh Interiors Main JavaScript File
-
 document.addEventListener("DOMContentLoaded", function () {
-  // ===== Mobile Menu Toggle =====
-  const mobileMenuBtn = document.querySelector(".mobile-menu");
-  const navMenu = document.querySelector("nav ul");
-
-
-
-    // Toggle between hamburger and close icon
-    const icon = this.querySelector("i");
-    if (icon.classList.contains("fa-bars")) {
-      icon.classList.remove("fa-bars");
-      icon.classList.add("fa-times");
-    } else {
-      icon.classList.remove("fa-times");
-      icon.classList.add("fa-bars");
-    }
-  });
-
   // ===== Header Scroll Effect =====
   const header = document.querySelector("header");
-
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 100) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
+  if (header) {
+    window.addEventListener("scroll", debounce(function () {
+      if (window.scrollY > 100) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }));
+  }
 
   // ===== Smooth Scrolling for Anchor Links =====
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-
       const targetId = this.getAttribute("href");
       if (targetId === "#") return;
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
+        e.preventDefault();
         window.scrollTo({
           top: targetElement.offsetTop - 80,
           behavior: "smooth",
         });
-
-        // Close mobile menu if open
-        if (navMenu.classList.contains("active")) {
-          mobileMenuBtn.click();
-        }
       }
     });
   });
@@ -85,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== Portfolio Item Hover Effects =====
   const portfolioItemsContainer = document.querySelector(".portfolio-items");
-
   if (portfolioItemsContainer) {
     portfolioItemsContainer.addEventListener("mouseover", function (e) {
       const item = e.target.closest(".portfolio-item");
@@ -112,57 +88,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== Active Link Highlighting =====
   const navLinks = document.querySelectorAll("nav ul li a");
-  const currentPage =
-    window.location.pathname.split("/").pop() || "InteriorDesign.html";
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
   navLinks.forEach((link) => {
     const linkPage = link.getAttribute("href");
     if (linkPage === currentPage) {
       link.classList.add("active");
-    } else {
-      link.classList.remove("active");
     }
   });
 
   // ===== Lazy Loading for Images =====
   const lazyImages = document.querySelectorAll("img[data-src]");
-
-  if ("IntersectionObserver" in window) {
+  if ("IntersectionObserver" in window && lazyImages.length > 0) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const img = entry.target;
           img.src = img.dataset.src;
-          img.removeAttribute("data-src");
+          img.onload = () => {
+            img.removeAttribute("data-src");
+          };
           observer.unobserve(img);
         }
       });
+    }, {
+      rootMargin: '200px 0px' // Start loading images 200px before they enter viewport
     });
 
     lazyImages.forEach((img) => {
       imageObserver.observe(img);
     });
-  } else {
-    // Fallback for browsers without IntersectionObserver
-    lazyImages.forEach((img) => {
-      img.src = img.dataset.src;
-    });
   }
 
-
   // ===== Preloader =====
-  window.addEventListener("load", function () {
-    const preloader = document.querySelector(".preloader");
-    if (preloader) {
+  const preloader = document.querySelector(".preloader");
+  if (preloader) {
+    window.addEventListener("load", function () {
       preloader.style.opacity = "0";
       setTimeout(() => {
         preloader.style.display = "none";
       }, 500);
-    }
-  });
+    });
+  }
+});
 
-
-// ===== Helper Functions =====
+// ===== Debounce Helper Function =====
 function debounce(func, wait = 20, immediate = true) {
   let timeout;
   return function () {
@@ -178,32 +148,3 @@ function debounce(func, wait = 20, immediate = true) {
     if (callNow) func.apply(context, args);
   };
 }
-
-// main.js
-document.addEventListener("DOMContentLoaded", function () {
-  // Mobile menu toggle
-  const mobileMenu = document.querySelector(".mobile-menu");
-  const navUl = document.querySelector("nav ul");
-
-
-
-  // Header scroll effect
-  window.addEventListener("scroll", function () {
-    const header = document.querySelector("header");
-    if (window.scrollY > 100) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
-
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-      });
-    });
-  });
-});

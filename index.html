@@ -21,12 +21,13 @@
 
   <body>
     <header class="transparent-header">
-      <!-- Choose between no class, dark-header, or transparent-header -->
       <div class="container">
         <div class="logo">
           <a href="index.html">Shaikh Interiors</a>
         </div>
-        <nav>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
           <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -34,26 +35,34 @@
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-          <div class="mobile-menu-toggle">
-            <i class="fas fa-bars"></i>
+        </nav>
+        
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-menu-toggle" aria-label="Open menu">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation (initially hidden) -->
+      <div class="mobile-nav-wrapper">
+        <nav class="mobile-nav">
+          <div class="mobile-nav-header">
+            <div class="logo">Shaikh Interiors</div>
+            <button class="mobile-close-btn" aria-label="Close menu">
+              <span class="close-icon">&times;</span>
+            </button>
           </div>
-          
-          <nav class="mobile-nav">
-            <ul>
-              <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="mobile-close-btn">
-              <i class="fas fa-times"></i>
-            </div>
-          </nav>
-          
-          <div class="mobile-nav-backdrop"></div>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-nav-backdrop"></div>
+      </div>
     </header>
-
     <section class="portfolio-header">
       <div class="container">
         <h1>Shaikh Interiors</h1>
@@ -117,8 +126,6 @@
               <a href="#" class="btn view-btn">View Project</a>
             </div>
           </div>
-
-          <!-- More projects... -->
         </div>
       </div>
     </section>
@@ -128,11 +135,7 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/services.js"></script>
-    <script src="assets/js/InteriorDesign.js"></script>
-    <script src="assets/js/contact.js"></script>
-    <script src="assets/js/portfolio.js"></script>
-    <script src="assets/js/about.js"></script>
-    <script src="js/mobile-menu.js"></script>
+ <script src="assets/js/portfolio.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
   </body>
 </html>

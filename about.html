@@ -16,12 +16,13 @@
   </head>
   <body>
     <header class="transparent-header">
-      <!-- Choose between no class, dark-header, or transparent-header -->
       <div class="container">
         <div class="logo">
           <a href="index.html">Shaikh Interiors</a>
         </div>
-        <nav>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
           <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -30,24 +31,32 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
+        
+        <!-- Mobile Menu Toggle Button -->
         <div class="mobile-menu-toggle">
           <i class="fas fa-bars"></i>
         </div>
-        
-        <nav class="mobile-nav">
-          <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+      </div> <!-- Close container div -->
+      
+      <!-- Mobile Navigation (outside main container) -->
+      <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+          <div class="logo">Shaikh Interiors</div>
           <div class="mobile-close-btn">
             <i class="fas fa-times"></i>
           </div>
-        </nav>
-        
-        <div class="mobile-nav-backdrop"></div>
+        </div>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Mobile Nav Backdrop -->
+      <div class="mobile-nav-backdrop"></div>
     </header>
 
     <section
