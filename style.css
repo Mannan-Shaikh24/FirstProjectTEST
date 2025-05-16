@@ -1248,9 +1248,9 @@
       right: auto !important;
     }
   
-    .timeline-item:nth-child(odd) .timeline-content::after,
-    .timeline-item:nth-child(even) .timeline-content::after {
-      left: 22.5px;
+    .timeline-item:nth-child(even) .timeline-content::after,
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      left: 0.2px;
     }
   }
   
